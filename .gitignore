@@ -1,0 +1,21 @@
+# Gradle build files
+.gradle/
+build/
+out/
+
+# Gradle wrapper files (do NOT ignore these!)
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

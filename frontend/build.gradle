@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = 'com.algoarena'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '21'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    mainClass = 'com.algoarena.client.MainApp'  // Adjust this to your MainApp package path
+}
+
+dependencies {
+    // Add test dependencies here if needed
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+}
