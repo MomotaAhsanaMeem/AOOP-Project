@@ -3,7 +3,7 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
-group = 'com.algoarena'
+group = 'com.algoarena.client'
 version = '0.0.1-SNAPSHOT'
 
 repositories {

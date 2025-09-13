@@ -1,16 +1,12 @@
 package com.algoarena.client;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import java.io.IOException;
 
 public class HomePageController {
+
     @FXML
     private Label gameTitle;
 
@@ -18,22 +14,12 @@ public class HomePageController {
     private Button startGameButton;
 
     @FXML
-    private void handleStartGame(ActionEvent event) {
-        try {
-            // Since you don't have gamescreen.fxml yet, just show a message
-            System.out.println("Starting AlgoArena Game!");
+    public void handleStartGame(ActionEvent event) {
+        // Hide the game title and start button when clicked
+        gameTitle.setVisible(false);
+        startGameButton.setVisible(false);
 
-            // Temporary alert instead of scene switching
-            javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
-            alert.setTitle("AlgoArena");
-            alert.setHeaderText(null);
-            alert.setContentText("Game will start soon!");
-            alert.showAndWait();
-
-        } catch (Exception e) {
-            System.err.println("Error loading game screen: " + e.getMessage());
-            e.printStackTrace();
-        }
+        // You can add further actions here such as showing story text or starting the game
     }
 
     @FXML
