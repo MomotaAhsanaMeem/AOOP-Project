@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
 
 public class HomePageController {
 
@@ -15,11 +17,22 @@ public class HomePageController {
 
     @FXML
     public void handleStartGame(ActionEvent event) {
-        // Hide the game title and start button when clicked
-        gameTitle.setVisible(false);
-        startGameButton.setVisible(false);
+        // Create fade transition
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), gameTitle);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
 
-        // You can add further actions here such as showing story text or starting the game
+        FadeTransition buttonFadeOut = new FadeTransition(Duration.seconds(1), startGameButton);
+        buttonFadeOut.setFromValue(1.0);
+        buttonFadeOut.setToValue(0.0);
+
+        // After fade completes, switch to game mode selection
+        fadeOut.setOnFinished(e -> {
+            SceneManager.getInstance().switchToScene("gamemode.fxml");
+        });
+
+        fadeOut.play();
+        buttonFadeOut.play();
     }
 
     @FXML

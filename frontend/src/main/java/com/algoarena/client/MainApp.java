@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.Objects;
 
 public class MainApp extends Application {
@@ -13,8 +12,12 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Fixed path - your FXML is in resources/fxml/homescreen.fxml
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/homescreen.fxml")));
+            // Set up SceneManager
+            SceneManager.getInstance().setPrimaryStage(primaryStage);
+
+            // Load initial scene
+            Parent root = FXMLLoader.load(Objects.requireNonNull(
+                    getClass().getResource("/fxml/homescreen.fxml")));
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("AlgoArena");

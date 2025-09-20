@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.algoarena.client.GameModeController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/bg.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" layoutX="150.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <Label alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="69.0" prefWidth="348.0" text="Select Game Mode" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Console" size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="singlePlayerButton" mnemonicParsing="false" onAction="#handleSinglePlayer" prefHeight="71.0" prefWidth="150.0" text="Single Player">
+               <font>
+                  <Font name="Lucida Console" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="buddyOpButton" mnemonicParsing="false" onAction="#handleBuddyOp" prefHeight="67.0" prefWidth="150.0" text="Buddy OP">
+               <font>
+                  <Font name="Lucida Console" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#handleBack" prefWidth="80.0" text="Back">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
