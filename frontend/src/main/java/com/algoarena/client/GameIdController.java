@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
 
 public class GameIdController {
 
@@ -28,11 +30,20 @@ public class GameIdController {
             return;
         }
 
-        // Store the player name (you can use this later in other scenes)
+        // Store the player name for later use
         System.out.println("Player name: " + playerName);
 
-        // Switch to the actual gameplay scene
-        SceneManager.getInstance().switchToScene("story.fxml");
+        // Create fade out effect before transitioning to story
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), titleLabel.getParent());
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+
+        // After fade completes, switch to story scene
+        fadeOut.setOnFinished(e -> {
+            SceneManager.getInstance().switchToScene("story.fxml");
+        });
+
+        fadeOut.play();
     }
 
     @FXML
@@ -48,7 +59,6 @@ public class GameIdController {
         alert.showAndWait();
     }
 
-    // Method to get the entered name (can be used by other controllers)
     public String getPlayerName() {
         return nameTextField.getText().trim();
     }
@@ -56,11 +66,7 @@ public class GameIdController {
     @FXML
     private void initialize() {
         System.out.println("Game ID page loaded successfully!");
-
-        // Set prompt text for the TextField
         nameTextField.setPromptText("Enter your name here...");
-
-        // Add listener for Enter key on TextField
         nameTextField.setOnAction(this::handleStart);
     }
 }
