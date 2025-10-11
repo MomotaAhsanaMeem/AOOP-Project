@@ -368,20 +368,29 @@ public class Level1Controller {
         finalRun.play();
         fadeOut.play();
 
-        // When animations complete, show final message
+        // When animations complete, transition to Level 2
         finalRun.setOnFinished(e -> {
             spriteAnimation.stop();
-            instructionLabel.setText("Level 1 Complete! The adventurer has successfully passed all challenges!");
+            instructionLabel.setText("Level 1 Complete! Proceeding to Level 2...");
 
-            // Optional: Add a small delay then return to menu or proceed to next level
-            Timeline returnDelay = new Timeline(new KeyFrame(Duration.millis(3000), event -> {
-                // Uncomment one of these based on your preference:
-                // SceneManager.getInstance().switchToScene("homescreen.fxml"); // Return to menu
-                // SceneManager.getInstance().switchToScene("level2.fxml"); // Go to next level
+            // Add a brief pause then transition to Level 2
+            Timeline transitionDelay = new Timeline(new KeyFrame(Duration.millis(2000), event -> {
+                // Fade out the entire scene before switching
+                FadeTransition sceneTransition = new FadeTransition(Duration.millis(1000), gamePane);
+                sceneTransition.setFromValue(1.0);
+                sceneTransition.setToValue(0.0);
+
+                sceneTransition.setOnFinished(transitionEvent -> {
+                    // Switch to Level 2
+                    SceneManager.getInstance().switchToScene("level2.fxml");
+                });
+
+                sceneTransition.play();
             }));
-            returnDelay.play();
+            transitionDelay.play();
         });
     }
+
 
     @FXML
     public void handleBackToMenu(ActionEvent event) {

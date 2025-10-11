@@ -14,7 +14,7 @@
         <!-- Background Image -->
         <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="false">
             <image>
-                <Image url="@../images/lvl1bg.png" />
+                <Image url="@../images/bg1.png" />
             </image>
         </ImageView>
 
@@ -45,15 +45,22 @@
                     </image>
                 </ImageView>
 
-                <!-- UI Elements -->
-                <VBox alignment="TOP_LEFT" layoutX="20.0" layoutY="20.0" spacing="10.0">
+                <!-- Back to Menu Button (Top Left Corner) -->
+                <Button mnemonicParsing="false" onAction="#handleBackToMenu" layoutX="20.0" layoutY="20.0" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;" text="Back to Menu" />
+
+                <!-- Centered Top UI Elements -->
+                <VBox alignment="CENTER" layoutX="300.0" layoutY="15.0" prefWidth="300.0" spacing="8.0">
                     <children>
-                        <Label fx:id="instructionLabel" prefWidth="450.0" text="Click on the character to start running!" textFill="BLACK" wrapText="true">
+                        <Label text="Level 1: Algorithm Arena" textFill="BLACK" alignment="CENTER" style="-fx-font-weight: bold;">
                             <font>
-                                <Font name="Lucida Console" size="14.0" />
+                                <Font name="Lucida Console" size="20.0" />
                             </font>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#handleBackToMenu" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;" text="Back to Menu" />
+                        <Label fx:id="instructionLabel" prefWidth="280.0" text="Click on the character to start running!" textFill="BLACK" wrapText="true" alignment="CENTER" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font name="Lucida Console" size="16.0" />
+                            </font>
+                        </Label>
                     </children>
                 </VBox>
 
