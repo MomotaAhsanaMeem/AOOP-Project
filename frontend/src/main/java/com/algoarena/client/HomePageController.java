@@ -8,6 +8,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.ParallelTransition;
 import javafx.util.Duration;
+import com.algoarena.client.audio.Bgm;
 
 public class HomePageController {
 
@@ -48,6 +49,7 @@ public class HomePageController {
         System.out.println("AlgoArena Home Page loaded successfully!");
         setupButtonStyles();
         setupButtonAnimations();
+        Bgm.ensureStarted();
     }
 
     private void setupButtonStyles() {

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+
+<StackPane fx:id="root"
+           xmlns="http://javafx.com/javafx/8"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.algoarena.client.Level3Controller"
+           prefWidth="900" prefHeight="600"
+           onDragOver="#handleRootDragOver"
+           onDragDropped="#handleRootDragDropped">
+
+    <!-- Background (programmatic image load) -->
+    <ImageView fx:id="backgroundImage"
+               fitWidth="900" fitHeight="600" preserveRatio="false"/>
+
+    <!-- Foreground UI layout (solving frame) -->
+    <HBox fx:id="panels" spacing="20" style="-fx-padding: 20;" opacity="0" mouseTransparent="true">
+        <!-- Left: Energy Cells Panel -->
+        <VBox fx:id="cellsPanel" spacing="12" prefWidth="260"
+              style="-fx-background-color: rgba(0,0,0,0.55); -fx-padding: 16; -fx-background-radius: 10;">
+            <Label text="Energy Cells" style="-fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Separator/>
+            <!-- Draggable cell cards -->
+            <VBox fx:id="cellsList" spacing="10"/>
+        </VBox>
+
+        <!-- Center: Core zone with narrative + mini question -->
+        <VBox alignment="CENTER" spacing="10" prefWidth="300"
+              style="-fx-background-color: rgba(0,0,0,0.35); -fx-padding: 16; -fx-background-radius: 10;">
+            <Label text="Energy Core" style="-fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <ImageView fx:id="coreImage" fitWidth="240" fitHeight="240" preserveRatio="true"/>
+            <Label fx:id="narrativeLabel"
+                   text="Central Energy Chamber online. Click your hero to approach the Core."
+                   wrapText="true"
+                   style="-fx-text-fill: #e0e0e0; -fx-font-size: 13;"
+                   maxWidth="260"/>
+            <!-- Mini question card (always visible in solving phase) -->
+            <VBox fx:id="miniQuestion" spacing="6" maxWidth="260"
+                  style="-fx-background-color: rgba(0,0,0,0.45); -fx-padding: 8; -fx-background-radius: 8; -fx-border-color: #66d1ff; -fx-border-radius: 8;"
+                  visible="false" opacity="0">
+                <Label text="Power the Energy Core" style="-fx-text-fill: #e6f7ff; -fx-font-size: 13; -fx-font-weight: bold;"/>
+                <Label fx:id="miniBody" wrapText="true" maxWidth="244"
+                       style="-fx-text-fill: #cfefff; -fx-font-size: 12; -fx-font-family: 'Lucida Console';"/>
+            </VBox>
+        </VBox>
+
+        <!-- Right: Hoverpack / Drop Zone -->
+        <VBox alignment="TOP_CENTER" spacing="12" prefWidth="260"
+              style="-fx-background-color: rgba(0,0,0,0.55); -fx-padding: 16; -fx-background-radius: 10;">
+            <Label text="Hoverpack / Core Container" style="-fx-font-size: 18; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Separator/>
+            <VBox fx:id="dropZone" spacing="10" prefHeight="360" prefWidth="220"
+                  style="-fx-background-color: rgba(255,255,255,0.08); -fx-padding: 10; -fx-border-color: #7ec8ff; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8;"
+                  onDragOver="#handleDropZoneDragOver"
+                  onDragDropped="#handleDropZoneDragDropped"
+                  onDragExited="#handleDropZoneDragExited"/>
+            <Label fx:id="statusLabel"
+                   text="Total Weight: 0 | Total Power: 0"
+                   style="-fx-text-fill: #d0f0ff; -fx-font-size: 14; -fx-font-family: 'Lucida Console';"/>
+            <Label fx:id="warningLabel"
+                   text=""
+                   style="-fx-text-fill: #ff6b6b; -fx-font-size: 13;"/>
+            <HBox spacing="10">
+                <Button fx:id="resetButton" text="Reset" onAction="#handleReset"
+                        style="-fx-font-size: 13;"/>
+                <Button fx:id="activateButton" text="Activate Core" onAction="#handleActivate"
+                        style="-fx-font-size: 13; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <!-- Character (idle run0..run5, click to run to core) -->
+    <ImageView fx:id="playerCharacter"
+               fitWidth="80" fitHeight="80" preserveRatio="true"
+               translateX="-360" translateY="160"
+               style="-fx-cursor: hand;" onMouseClicked="#handleCharacterClicked"/>
+
+    <!-- Intro Problem Modal (hidden initially) -->
+    <VBox fx:id="introModal" alignment="CENTER" spacing="14" opacity="0" visible="false"
+          style="-fx-background-color: rgba(0,0,0,0.88); -fx-background-radius: 12; -fx-padding: 20;"
+          prefWidth="640" prefHeight="360">
+        <Label text="Energy Core Initialization"
+               style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+        <Label fx:id="introBody"
+               wrapText="true" maxWidth="560"
+               style="-fx-text-fill: #e6f7ff; -fx-font-size: 14; -fx-font-family: 'Lucida Console';"/>
+        <HBox spacing="10">
+            <Button fx:id="introSolveBtn" text="Solve" onAction="#handleIntroSolve"
+                    style="-fx-font-weight: bold;"/>
+            <Button fx:id="introCloseBtn" text="Close" onAction="#handleIntroClose"/>
+        </HBox>
+    </VBox>
+
+    <!-- Credits Modal (shown after success) -->
+    <VBox fx:id="creditsModal" alignment="CENTER" spacing="12" visible="false" opacity="0"
+          style="-fx-background-color: rgba(0,0,0,0.95); -fx-background-radius: 12; -fx-padding: 28;"
+          prefWidth="700" prefHeight="420">
+        <Label text="Thank you for playing!" style="-fx-text-fill: #eaffff; -fx-font-size: 26; -fx-font-weight: bold;"/>
+        <Label text="developers: 1. Omio 2. Rabid 3. Sajid &amp; 4. Meem"
+               style="-fx-text-fill: #cfefff; -fx-font-size: 16; -fx-font-family: 'Lucida Console';"/>
+        <HBox spacing="10">
+            <Button text="Return to Home" onAction="#handleReturnHome" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+</StackPane>
