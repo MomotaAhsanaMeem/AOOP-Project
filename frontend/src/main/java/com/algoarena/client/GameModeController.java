@@ -11,8 +11,8 @@ public class GameModeController {
     @FXML
     private Button singlePlayerButton;
 
-    @FXML
-    private Button buddyOpButton;
+    // @FXML
+    // private Button buddyOpButton;
 
     @FXML
     private Button backButton;
@@ -22,10 +22,10 @@ public class GameModeController {
         SceneManager.getInstance().switchToScene("gameid.fxml");
     }
 
-    @FXML
-    public void handleBuddyOp(ActionEvent event) {
-        SceneManager.getInstance().switchToScene("gameid.fxml");
-    }
+    // @FXML
+    // public void handleBuddyOp(ActionEvent event) {
+    //     // SceneManager.getInstance().switchToScene("gameid.fxml");
+    // }
 
     @FXML
     public void handleBack(ActionEvent event) {
@@ -55,18 +55,18 @@ public class GameModeController {
         singlePlayerButton.setStyle(singlePlayerStyle);
 
         // Buddy OP button - Orange theme
-        String buddyOpStyle = """
-            -fx-background-color: linear-gradient(to bottom, #FF9800 0%, #F57C00 50%, #E65100 100%);
-            -fx-background-radius: 20px;
-            -fx-border-color: #BF360C;
-            -fx-border-width: 3px;
-            -fx-border-radius: 20px;
-            -fx-text-fill: white;
-            -fx-font-weight: bold;
-            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0.3, 0, 4);
-            -fx-cursor: hand;
-            """;
-        buddyOpButton.setStyle(buddyOpStyle);
+        // String buddyOpStyle = """
+        //     -fx-background-color: linear-gradient(to bottom, #FF9800 0%, #F57C00 50%, #E65100 100%);
+        //     -fx-background-radius: 20px;
+        //     -fx-border-color: #BF360C;
+        //     -fx-border-width: 3px;
+        //     -fx-border-radius: 20px;
+        //     -fx-text-fill: white;
+        //     -fx-font-weight: bold;
+        //     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0.3, 0, 4);
+        //     -fx-cursor: hand;
+        //     """;
+        // buddyOpButton.setStyle(buddyOpStyle);
 
         // Back button - Gray theme
         String backStyle = """
@@ -107,26 +107,26 @@ public class GameModeController {
         });
 
         // Buddy OP hover effects
-        buddyOpButton.setOnMouseEntered(e -> {
-            String hoverStyle = """
-                -fx-background-color: linear-gradient(to bottom, #FFB74D 0%, #FF9800 50%, #F57C00 100%);
-                -fx-background-radius: 20px;
-                -fx-border-color: #BF360C;
-                -fx-border-width: 3px;
-                -fx-border-radius: 20px;
-                -fx-text-fill: white;
-                -fx-font-weight: bold;
-                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 18, 0.4, 0, 6);
-                -fx-cursor: hand;
-                """;
-            buddyOpButton.setStyle(hoverStyle);
-            scaleButton(buddyOpButton, 1.05);
-        });
+        // buddyOpButton.setOnMouseEntered(e -> {
+        //     String hoverStyle = """
+        //         -fx-background-color: linear-gradient(to bottom, #FFB74D 0%, #FF9800 50%, #F57C00 100%);
+        //         -fx-background-radius: 20px;
+        //         -fx-border-color: #BF360C;
+        //         -fx-border-width: 3px;
+        //         -fx-border-radius: 20px;
+        //         -fx-text-fill: white;
+        //         -fx-font-weight: bold;
+        //         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 18, 0.4, 0, 6);
+        //         -fx-cursor: hand;
+        //         """;
+        //     buddyOpButton.setStyle(hoverStyle);
+        //     scaleButton(buddyOpButton, 1.05);
+        // });
 
-        buddyOpButton.setOnMouseExited(e -> {
-            setupButtonStyles();
-            scaleButton(buddyOpButton, 1.0);
-        });
+        // buddyOpButton.setOnMouseExited(e -> {
+        //     setupButtonStyles();
+        //     scaleButton(buddyOpButton, 1.0);
+        // });
 
         // Back button hover effects
         backButton.setOnMouseEntered(e -> {

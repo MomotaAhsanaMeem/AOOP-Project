@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017}
+      database: ${MONGODB_DB:aoop_game}
+
+app:
+  wsPath: /ws
+  gemini:
+    apiKey: ${GEMINI_API_KEY:AIzaSyC41JxN_cH8d_8M5fGHV52vGvCp96KLGog}
+    model: ${GEMINI_MODEL:gemini-2.5-flash-lite}
