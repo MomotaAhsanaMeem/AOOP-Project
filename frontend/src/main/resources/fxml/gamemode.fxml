@@ -23,17 +23,17 @@
                </font>
             </Label>
 
-            <Button fx:id="singlePlayerButton" mnemonicParsing="false" onAction="#handleSinglePlayer" prefHeight="80.0" prefWidth="300.0" text="⚡ SINGLE PLAYER ⚡">
+            <Button fx:id="singlePlayerButton" mnemonicParsing="false" onAction="#handleSinglePlayer" prefHeight="80.0" prefWidth="300.0" text="⚡ Adventure ⚡">
                <font>
                   <Font name="Lucida Console" size="18.0" />
                </font>
             </Button>
 
-            <Button fx:id="buddyOpButton" mnemonicParsing="false" onAction="#handleBuddyOp" prefHeight="80.0" prefWidth="300.0" text="👥 BUDDY OP 👥">
+            <!-- <Button fx:id="buddyOpButton" mnemonicParsing="false" onAction="#handleBuddyOp" prefHeight="80.0" prefWidth="300.0" text="👥 BUDDY OP 👥">
                <font>
                   <Font name="Lucida Console" size="18.0" />
                </font>
-            </Button>
+            </Button> -->
 
             <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="120.0" text="⬅ BACK">
                <font>

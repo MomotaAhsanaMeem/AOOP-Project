@@ -3,18 +3,24 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.algoarena.client.Level1Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="600.0" prefWidth="900.0"
+      xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.algoarena.client.Level1Controller">
     <children>
         <!-- Background Image -->
         <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="false">
             <image>
-                <Image url="@../images/bg1.png" />
+                <Image url="@../images/bg1.png"/>
             </image>
         </ImageView>
 
@@ -22,96 +28,139 @@
         <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="900.0">
             <children>
                 <!-- Character (positioned on green grass area) -->
-                <ImageView fx:id="characterImage" fitHeight="80.0" fitWidth="80.0" layoutX="34.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" />
+                <ImageView fx:id="characterImage" fitHeight="80.0" fitWidth="80.0"
+                           layoutX="34.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true"
+                           style="-fx-cursor: hand;"/>
 
                 <!-- Rock Obstacle 1 -->
-                <ImageView fx:id="rockObstacle1" fitHeight="120.0" fitWidth="100.0" layoutX="228.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/rock1.png" />
-                    </image>
+                <ImageView fx:id="rockObstacle1" fitHeight="120.0" fitWidth="100.0"
+                           layoutX="228.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../images/rock1.png"/></image>
                 </ImageView>
 
                 <!-- Rock Obstacle 2 -->
-                <ImageView fx:id="rockObstacle2" fitHeight="120.0" fitWidth="100.0" layoutX="450.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/rock2.png" />
-                    </image>
+                <ImageView fx:id="rockObstacle2" fitHeight="120.0" fitWidth="100.0"
+                           layoutX="450.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../images/rock2.png"/></image>
                 </ImageView>
 
                 <!-- Rock Obstacle 3 -->
-                <ImageView fx:id="rockObstacle3" fitHeight="120.0" fitWidth="100.0" layoutX="674.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/rock3.png" />
-                    </image>
+                <ImageView fx:id="rockObstacle3" fitHeight="120.0" fitWidth="100.0"
+                           layoutX="674.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../images/rock3.png"/></image>
                 </ImageView>
 
                 <!-- Back to Menu Button (Top Left Corner) -->
-                <Button mnemonicParsing="false" onAction="#handleBackToMenu" layoutX="20.0" layoutY="20.0" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;" text="Back to Menu" />
+                <Button mnemonicParsing="false" onAction="#handleBackToMenu"
+                        layoutX="20.0" layoutY="20.0" prefHeight="35.0" prefWidth="120.0"
+                        style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;"
+                        text="Back to Menu"/>
 
                 <!-- Centered Top UI Elements -->
                 <VBox alignment="CENTER" layoutX="300.0" layoutY="15.0" prefWidth="300.0" spacing="8.0">
                     <children>
                         <Label text="Level 1: Algorithm Arena" textFill="BLACK" alignment="CENTER" style="-fx-font-weight: bold;">
-                            <font>
-                                <Font name="Lucida Console" size="20.0" />
-                            </font>
+                            <font><Font name="Lucida Console" size="20.0"/></font>
                         </Label>
-                        <Label fx:id="instructionLabel" prefWidth="280.0" text="Click on the character to start running!" textFill="BLACK" wrapText="true" alignment="CENTER" style="-fx-font-weight: bold;">
-                            <font>
-                                <Font name="Lucida Console" size="16.0" />
-                            </font>
+                        <Label fx:id="instructionLabel" prefWidth="280.0"
+                               text="Click on the character to start running!"
+                               textFill="BLACK" wrapText="true" alignment="CENTER" style="-fx-font-weight: bold;">
+                            <font><Font name="Lucida Console" size="16.0"/></font>
                         </Label>
                     </children>
                 </VBox>
 
                 <!-- Quiz Modal (Resized for longer questions) -->
-                <VBox fx:id="quizModal" alignment="CENTER" layoutX="150.0" layoutY="80.0" prefHeight="440.0" prefWidth="600.0" spacing="15.0" style="-fx-background-color: rgba(0, 0, 0, 0.95); -fx-border-color: #4CAF50; -fx-border-width: 3px; -fx-padding: 25px; -fx-background-radius: 10px; -fx-border-radius: 10px;" visible="false">
+                <VBox fx:id="quizModal" alignment="CENTER" layoutX="150.0" layoutY="80.0"
+                      prefHeight="440.0" prefWidth="600.0" spacing="15.0"
+                      style="-fx-background-color: rgba(0, 0, 0, 0.95); -fx-border-color: #4CAF50; -fx-border-width: 3px; -fx-padding: 25px; -fx-background-radius: 10px; -fx-border-radius: 10px;"
+                      visible="false">
                     <children>
                         <Label text="Algorithm Challenge" textFill="#4CAF50">
-                            <font>
-                                <Font name="Lucida Console" size="20.0" />
-                            </font>
+                            <font><Font name="Lucida Console" size="20.0"/></font>
                         </Label>
-                        <Label fx:id="questionLabel" prefWidth="550.0" text="Question text here..." textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                            <font>
-                                <Font name="Lucida Console" size="12.0" />
-                            </font>
+                        <Label fx:id="questionLabel" prefWidth="550.0" text="Question text here..."
+                               textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                            <font><Font name="Lucida Console" size="12.0"/></font>
                         </Label>
 
                         <!-- Multiple Choice Options -->
                         <VBox spacing="12.0" style="-fx-padding: 10px;">
                             <children>
-                                <RadioButton fx:id="optionA" mnemonicParsing="false" prefWidth="520.0" text="Option A" textFill="WHITE" wrapText="true">
-                                    <font>
-                                        <Font name="Lucida Console" size="11.0" />
-                                    </font>
+                                <RadioButton fx:id="optionA" mnemonicParsing="false" prefWidth="520.0"
+                                             text="Option A" textFill="WHITE" wrapText="true">
+                                    <font><Font name="Lucida Console" size="11.0"/></font>
                                 </RadioButton>
-                                <RadioButton fx:id="optionB" mnemonicParsing="false" prefWidth="520.0" text="Option B" textFill="WHITE" wrapText="true">
-                                    <font>
-                                        <Font name="Lucida Console" size="11.0" />
-                                    </font>
+                                <RadioButton fx:id="optionB" mnemonicParsing="false" prefWidth="520.0"
+                                             text="Option B" textFill="WHITE" wrapText="true">
+                                    <font><Font name="Lucida Console" size="11.0"/></font>
                                 </RadioButton>
-                                <RadioButton fx:id="optionC" mnemonicParsing="false" prefWidth="520.0" text="Option C" textFill="WHITE" wrapText="true">
-                                    <font>
-                                        <Font name="Lucida Console" size="11.0" />
-                                    </font>
+                                <RadioButton fx:id="optionC" mnemonicParsing="false" prefWidth="520.0"
+                                             text="Option C" textFill="WHITE" wrapText="true">
+                                    <font><Font name="Lucida Console" size="11.0"/></font>
                                 </RadioButton>
-                                <RadioButton fx:id="optionD" mnemonicParsing="false" prefWidth="520.0" text="Option D" textFill="WHITE" wrapText="true">
-                                    <font>
-                                        <Font name="Lucida Console" size="11.0" />
-                                    </font>
+                                <RadioButton fx:id="optionD" mnemonicParsing="false" prefWidth="520.0"
+                                             text="Option D" textFill="WHITE" wrapText="true">
+                                    <font><Font name="Lucida Console" size="11.0"/></font>
                                 </RadioButton>
                             </children>
                         </VBox>
 
                         <VBox alignment="CENTER" spacing="12.0" style="-fx-padding: 10px 0 0 0;">
                             <children>
-                                <Button fx:id="submitButton" onAction="#handleSubmitAnswer" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" text="Submit" />
-                                <Button fx:id="cancelButton" onAction="#handleCancelQuiz" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" text="Cancel" />
+                                <Button fx:id="submitButton" onAction="#handleSubmitAnswer"
+                                        prefHeight="35.0" prefWidth="120.0"
+                                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"
+                                        text="Submit"/>
+                                <Button fx:id="cancelButton" onAction="#handleCancelQuiz"
+                                        prefHeight="35.0" prefWidth="120.0"
+                                        style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"
+                                        text="Cancel"/>
                             </children>
                         </VBox>
                     </children>
                 </VBox>
+
+                <!-- ===== Guide (AI helper) additions ===== -->
+
+                <!-- Toggle button (top-right) -->
+                <Button fx:id="guideButton"
+                        layoutX="760.0" layoutY="20.0" prefWidth="120.0" prefHeight="35.0"
+                        text="Guide"
+                        style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;"
+                        onAction="#onGuideToggle"/>
+
+                <!-- Slide-out guide panel on the right -->
+                <VBox fx:id="guidePane"
+                      layoutX="620.0" layoutY="70.0" prefWidth="260.0" prefHeight="460.0" spacing="8.0"
+                      visible="false"
+                      style="-fx-background-color: rgba(0,0,0,0.85); -fx-padding: 10px; -fx-background-radius: 10px; -fx-border-color: #4CAF50; -fx-border-width: 2px; -fx-border-radius: 10px;">
+                    <children>
+                        <Label text="Guide" textFill="#A5D6A7" style="-fx-font-weight: bold;">
+                            <font><Font name="Lucida Console" size="16.0"/></font>
+                        </Label>
+
+                        <!-- Chat transcript -->
+                        <TextArea fx:id="guideChatArea"
+                                  prefHeight="340.0" wrapText="true" editable="false"
+                                  style="-fx-control-inner-background: rgba(20,20,20,0.95); -fx-text-fill: #E0E0E0;"/>
+
+                        <!-- Input row -->
+                        <HBox spacing="6.0">
+                            <children>
+                                <TextField fx:id="guideInput" promptText="Ask for a hint..."
+                                           prefWidth="190.0"
+                                           onAction="#onGuideSend"
+                                           style="-fx-background-radius: 6px; -fx-background-color: rgba(255,255,255,0.9);"/>
+                                <Button text="Send" prefWidth="60.0"
+                                        style="-fx-background-color: #43A047; -fx-text-fill: white; -fx-font-weight: bold;"
+                                        onAction="#onGuideSend"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <!-- ===== end Guide additions ===== -->
+
             </children>
         </Pane>
     </children>
